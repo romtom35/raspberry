@@ -1,0 +1,20 @@
+from flask import Flask
+app = Flask(__name__)
+import RPi.GPIO as GPIO
+GPIO.setmode(GPIO.BCM)
+GPIO.setwarnings(False)
+
+@app.route('/')
+def index():
+    return 'Index Page'
+
+@app.route('/hello/<name>')
+def hello(name):
+    return 'hello %s' % name
+
+@app.route('/led/<on_off>')
+def led(on_off):
+    if ('on'):
+    GPIO.setup(14, GPIOGPIO.setup.OUT)
+    GPIO.output(14, GPIO.HIGH)
+    return 'on
