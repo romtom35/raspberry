@@ -1,4 +1,5 @@
 import RPi.GPIO as GPIO
+import time
 class Led:
     def __init__(self, status):
         self.status = status
@@ -14,3 +15,12 @@ class Led:
             GPIO.output(14, GPIO.LOW)
         else:
             return 'Erreur de manipulation'
+
+    def blink(self):
+        i=0
+        while i < 5:
+            GPIO.output(14, GPIO.HIGH)
+            time.sleep(1)
+            GPIO.output(14, GPIO.LOW)
+            time.sleep(1)
+            i=i+1
